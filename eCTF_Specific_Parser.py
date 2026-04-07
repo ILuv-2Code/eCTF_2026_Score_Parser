@@ -1,6 +1,11 @@
-from selenium.webdriver.edge.webdriver import WebDriver ##change this to decide websdriver (Firefox, Chrome, etc)
-# from selenium.webdriver.firefox.webdriver import WebDriver
+# Edge (default)
+from selenium.webdriver.edge.webdriver import WebDriver
+
+# Chrome
 # from selenium.webdriver.chrome.webdriver import WebDriver
+
+# Firefox
+# from selenium.webdriver.firefox.webdriver import WebDriver
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
