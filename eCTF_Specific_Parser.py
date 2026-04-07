@@ -1,4 +1,7 @@
 from selenium.webdriver.edge.webdriver import WebDriver ##change this to decide websdriver (Firefox, Chrome, etc)
+# from selenium.webdriver.firefox.webdriver import WebDriver
+# from selenium.webdriver.chrome.webdriver import WebDriver
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -13,6 +16,7 @@ options.add_argument("--disable-gpu")
 
 import csv
 import time
+import json
 
 
 def wait_for_element(locator, timeout=10):
@@ -88,12 +92,17 @@ TEAM_CATEGORY_PREFIX = "Attack - "
 
 team_data = {}
 
+with open("creds.json", "r") as file:
+    data = json.load(file)
+    u = data["username"]
+    p = data["password"]
+
 
 page_login(
     url="https://ectf.ctfd.io/login",
     submit_btn="_submit",
-    name= "username", ## username
-    password= "password", ##input password
+    name= u,
+    password= p,
 )
 
 time.sleep(2)
